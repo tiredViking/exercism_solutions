@@ -1,15 +1,8 @@
 #include "resistor_color_duo.h"
 
-uint16_t color_code(resistor_band_t colors[]){
+uint16_t color_code(resistor_band_t bands[]){
+    uint16_t tens = (uint16_t)bands[0];
+    uint16_t ones = (uint16_t)bands[1];
 
-    char full[3]; 
-    sprintf(full, "%d", colors[0]);
-    char second_digit[2]; 
-    sprintf(second_digit, "%d", colors[1]);
-    strcat(full, second_digit);
-    
-    uint16_t final_code;
-    sscanf(full, "%hu", &final_code);
-    return final_code;
-
+    return (tens*10) + ones;
 }
